@@ -1,0 +1,46 @@
+.Title {
+    text-align: center;
+    color: rgb(209, 66, 190);
+    font-family: 'Courier New', Courier, monospace
+}
+
+#products .newproduct{
+	text-align: center;
+	float: left;
+	width: 250px;	
+	padding: 15px;
+    margin-right: 5px;
+    height: 420px;
+    margin-bottom: 5px;
+    background-color: #34bbfa;
+    border: 2px solid black;
+}
+
+#products .image{
+    padding: 3px;
+    width: 200px;
+    height: 180px;
+}
+
+#products .title {
+    
+    color: rgb(205, 112, 50);
+    padding: 5px;
+    font-size: 20px;
+    
+}
+
+#products .category{
+    padding: 5px;
+    font-size: 15px;
+        }
+
+#products .price{
+            padding: 5px;
+            color: rgb(7, 26, 21);
+            font-size: 15px;
+            
+        }
+.clear{
+            clear: both;
+        }
