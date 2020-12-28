@@ -32,13 +32,7 @@ exports.update = function (criteria, doc, callback) {
     })
 }
 
-// RETRIEVE vacation packages based on criteria
-exports.select = function (criteria, callback) {
-    model.LinkedIn.find(criteria, function (err, data) {
-        callback(err, data)
-    })
-
-    
+ 
 }
 
 exports.delete = function (criteria, callback) {
