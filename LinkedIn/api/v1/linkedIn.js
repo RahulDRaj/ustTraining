@@ -11,6 +11,7 @@ var URI = '/' + VERSION + '/' + RESOURCE_NAME;
 var db = require('../../db/linkedIn')
 var apiErrors = require('../../util/errors')
 var apiMessages = require('../../util/messages')
+const MIN_AGE=18
 
 module.exports = function(router){
     'use strict';
@@ -20,6 +21,7 @@ module.exports = function(router){
 
     //    /v1/Vacations
     router.route(URI).get(function(req, res,next){
+		res.header('Cache-Control', 'public, min-age='+MIN_AGE);
         console.log("GET Details")
         var fields ={}
         if(req.query && req.query.fields !== undefined){
@@ -57,6 +59,7 @@ module.exports = function(router){
 
     // CREATE new vacation packages
     router.route(URI).post(function(req, res,next){
+		res.header('Cache-Control', 'public, min-age='+MIN_AGE);
         console.log("POST  Details")
 
         //1. Get the data
@@ -76,7 +79,8 @@ module.exports = function(router){
     });
 
     router.route(URI).put(function(req,res,next){
-        console.log("update data")
+		res.header('Cache-Control', 'public, min-age='+MIN_AGE);
+        console.log("UPDATE")
         var criteria = {name: 'kannan'}
         var doc = req.body;
         db.update(criteria,doc,function(err,updated){
@@ -92,7 +96,8 @@ module.exports = function(router){
     });
 
     router.route(URI).delete(function(req,res,next){
-        console.log("Remove data")
+		res.header('Cache-Control', 'public, min-age='+MIN_AGE);
+        console.log("Delete")
         var criteria = {name:"kannan1"}
         db.delete(criteria,function(err,deleted){
             if(err){
