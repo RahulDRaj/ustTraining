@@ -13,7 +13,7 @@ exports.save = function (data, callback) {
     })
 }
 
-// CREATE multiple vacation packages
+// CREATE multiple  packages
 exports.saveMany = function (rows, callback) {
 
     model.LinkedIn.insertMany(rows, function (err, docs) {
@@ -22,10 +22,10 @@ exports.saveMany = function (rows, callback) {
 
 }
 
-// UPDATE the vacation packages
+// UPDATE the  packages
 // http://mongoosejs.com/docs/api.html#model_Model.update
 exports.update = function (criteria, doc, callback) {
-    // Replaced .update() with .updateMany() as .update() is deprecated
+    
     model.LinkedIn.updateMany(criteria, doc, function (err, data) {
         callback(err, data)
 

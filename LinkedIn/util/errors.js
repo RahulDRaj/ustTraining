@@ -1,10 +1,10 @@
 /**
  * Maintains all error codes
- * You may externalize this file and read it as JSON data at the time of initialization
+
  */
 exports.errors = {
     // This is a catch all error
-    // Ideally this should never be thrown
+    
     UNKNOWN_ERROR : {
         code:5000,
         text:"Unknown error !!!",
@@ -19,7 +19,7 @@ exports.errors = {
         info:"http://developer.acme.com/errors#6000"
     },
 
-    // All required/missing field errors start with number 7
+   
     MISSING_PACKAGE_NAME : {
         code:7001,
         text:"Required field vacation 'name' is missing",
@@ -65,16 +65,16 @@ exports.errors = {
  */
 exports.create = function(message,httpMethod,endpointInformation,errorList,receivedPayload){
     return    {
-        // Meant for the developer 
+    
         text:message,
         timestamp:new Date(),
-        // POST, GET ....
+       
         method:httpMethod,
-        // Endpoint information
+        
         endpoint:endpointInformation,
-        // An array of all errors
+       
         errors : errorList,
-        // OPTIONAL - Use only during development
+        
         payload: receivedPayload
     }
 }

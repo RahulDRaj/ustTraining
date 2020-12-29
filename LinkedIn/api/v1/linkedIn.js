@@ -1,13 +1,10 @@
-/**
- * Contains the definition of the API endpoints for vacation packages
- * 
- */
-// As a best practice keep the resource name same as the file name
+
+
 var RESOURCE_NAME = 'linkedIn';
 var VERSION = 'v1';
 var URI = '/' + VERSION + '/' + RESOURCE_NAME; 
 
-// Setup the vacations db
+// Setup the  db
 var db = require('../../db/linkedIn')
 var apiErrors = require('../../util/errors')
 var apiMessages = require('../../util/messages')
@@ -175,3 +172,14 @@ var processValidationErrors = function (err) {
 
     return errorList;
 }
+
+function createFields(str){
+    var arr = str.split(',')
+    str = '{'
+    for(var i=0; i < arr.length; i++){
+        str += '\"' + arr[i] + '\":1'
+        if(i < arr.length - 1) str += ","
+    }
+    str += '}'
+    return JSON.parse(str)
+} 
