@@ -1,0 +1,159 @@
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title:  LINKEDIN API
+  description: This specification is for linkedin API 
+  
+  contact:
+    name: Rahul 
+    url: https://www.newlinkedin.com
+    email: administrayor@linked.com
+    
+  license:
+    name: LinkdeIn
+    url: https://www.newlinkedin.com
+    
+host: localhost:3000
+basePath: /v1/
+schemes:
+  - http
+  - https
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+
+paths:
+
+  /linkedIn:
+    get:
+      summary: This is a get api to get the profiles
+      description: In this page you can find list of profiles
+        
+      tags:
+        - linkedIn
+      
+      #parameres: There ar eno parameters for this operation
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/linkedIn"
+        "500":
+          description: Database connection failed
+          schema:
+            $ref: "#/definitions/NotConnectedError"
+        "404":
+          description: Document not found
+          schema:
+            $ref: "#/definitions/NotFoundError"
+    
+    put:
+      summary: This is a put api for profiles
+      description: In this page you can update the profiles
+        
+      tags:
+        - linkedIn
+      
+      
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/linkedIn"
+        "400":
+          description: format mismatch
+          schema:
+            $ref: "#/definitions/linkedIn"
+    
+    post:
+      summary: This is a post api for profiles
+      description: In this page you can add new profiles
+        
+      tags:
+        - linkedIn
+      
+      
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/linkedIn"
+        "400":
+          description: Database connection failed
+          schema:
+            $ref: "#/definitions/NotConnectedError"
+        
+    
+    delete:
+      summary: This is a delete api for profiles
+      description: In this page you can delete profilese from list of profiles available
+        
+      tags:
+        - linkedIn
+      
+     
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/linkedIn"
+        "500":
+          description: Database connection failed
+          schema:
+            $ref: "#/definitions/NotConnectedError"
+
+#Definitions
+definitions:
+  #Not Found Error
+  NotFoundError:
+    required:
+      - message
+      - hint
+    properties:
+      message:
+        type: string
+      hint:
+        type: string
+        
+   #Not Connected Error
+  NotConnectedError:
+    required:
+      - message
+      - hint
+    properties:
+      message:
+        type: string
+      hint:
+        type: string
+    
+  
+  linkedIn:
+    required:
+      - email
+      - name
+      - age
+      - description 
+      - phone
+      - highestDegree
+      - picture
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      age:
+        type: number
+      description:
+        type: string
+      phone:
+        type: string
+      highestDegree:
+        type: string
+      picture:
+        type: string
+  
+  
